@@ -38,5 +38,24 @@ class LinkedList:
 
         return False
 
+    """ 
+    
+    RECURSIVELY RUN THROUGH ALL,
+    UNTIL NO MORE,
+    SET NEXT AS PREV,
+    REVERSED
+    
+    RUNTIME O(logn)
+    
+    """
+    
     def reverse_list(self, node, prev):
-        pass
+        if self.head is None:               # IF EMPTY
+            return None
+        elif node.next_node:                    #IF NEXT EXISTS
+            new_node = node.get_next()              # SET NEW_NODE TO THE NEXT ONE
+            self.reverse_list(new_node, node)           # RESET FUNCTION
+        else:                                   # IF NEXT DOESNT EXIST( aka end ),
+            self.head = node                        # SET HEAD AS NODE
+        node.set_next(prev)                     # ONCE WENT THROUGH ALL, SET NEXT AS PREV
+        print(f"Reversed List ---> {str(node)}")
