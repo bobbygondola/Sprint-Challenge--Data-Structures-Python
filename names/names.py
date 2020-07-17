@@ -19,23 +19,42 @@ duplicates = []  # Return the list of duplicates in this data structure
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
-bst = BSTNode("")
 
-for name in names_1:
+
+
+"""  
+RECURSION FOR FINDING DUPLICATES  
+"""
+
+"""   
+OLD runtime = runtime: 6.415943622589111 seconds   0(n^2) - double loop
+"""
+
+"""   
+NEW runtime = runtime: 0.1914615535736084 seconds  0(logn) 
+"""
+
+bst = BSTNode('')
+
+for name in names_1:                # INSERT ALL NAMES INTO BST
     bst.insert(name)
     
-for name in names_2:
-    if bst.contains(name):
+for name in names_2:            
+    if bst.contains(name):          # IF BST CONTAINS NAME, APPEND TO DUPLIATES.
         duplicates.append(name)
+        
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
+
+
+
+
+
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish?  Thare are no restrictions on techniques or data
 # structures, but you may not import any additional libraries that you did not write yourself.
 
-"""   old runtime = runtime: 6.415943622589111 seconds   """
-"""   new runtime = runtime: 0.2014615535736084 seconds  """
