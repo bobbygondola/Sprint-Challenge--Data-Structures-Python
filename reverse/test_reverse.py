@@ -4,14 +4,12 @@ from reverse import LinkedList
 class LinkedListTests(unittest.TestCase):
   def setUp(self):
     self.list = LinkedList()
-    print(self.list)
     
   def test_add_to_head(self):
     self.list.add_to_head(1)
     self.assertEqual(self.list.head.value, 1)
     self.list.add_to_head(2)
     self.assertEqual(self.list.head.value, 2)
-    print(self.list)
 
   def test_contains(self):
     self.list.add_to_head(1)
@@ -20,7 +18,6 @@ class LinkedListTests(unittest.TestCase):
     self.assertTrue(self.list.contains(2))
     self.assertTrue(self.list.contains(10))
     self.assertFalse(self.list.contains(1000))
-    print(self.list)
 
   def test_empty_reverse(self):
     self.list.reverse_list(self.list.head, None)
@@ -30,7 +27,6 @@ class LinkedListTests(unittest.TestCase):
     self.list.add_to_head(1)
     self.list.reverse_list(self.list.head, None)
     self.assertEqual(self.list.head.value, 1)
-    print(self.list)
     
   def test_longer_reverse(self):
     self.list.add_to_head(1)
@@ -43,7 +39,6 @@ class LinkedListTests(unittest.TestCase):
     self.assertEqual(self.list.head.value, 1)
     self.assertEqual(self.list.head.get_next().value, 2)
     self.assertEqual(self.list.head.get_next().get_next().value, 3)
-    print(self.list)
     
     
 if __name__ == '__main__':
